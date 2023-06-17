@@ -33,13 +33,6 @@ def run(_sys_args):
         puts("Flashing over TCP is not yet implemented.")
         flash_over_air = True
         exit_prog(True)
-    else:
-        pc_port_paths = list()
-        [pc_port_paths.append(p[0]) for p in list(serial.tools.list_ports.comports())]
-        debug("All available serial communication ports on your machine: " + str(pc_port_paths))
-        if port not in pc_port_paths:
-            puts("Given serial port was not available.")
-            exit_prog(True)
     puts("Serial connection made.")
     file_path = str(_sys_args[1])
     filename, file_extension = os.path.splitext(file_path)
